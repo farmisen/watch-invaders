@@ -1,43 +1,59 @@
 # Deploying Watch Invaders to Your Garmin Watch
 
-## Method 1: Using Garmin Connect Mobile App (Recommended)
+## Prerequisites
 
-1. **Build the release version:**
+1. **Install the Garmin Connect IQ SDK:**
+   - Visit https://developer.garmin.com/connect-iq/sdk/
+   - Download the SDK for your platform
+   - Follow the installation instructions
+
+2. **Generate a developer key:**
    ```bash
+   openssl genrsa -out developer_key 4096
+   ```
+
+3. **Setup environment:**
+   ```bash
+   cp .envrc.example .envrc
+   # Edit .envrc to set your SDK path
    source .envrc
+   ```
+
+## Method 1: Using USB Cable (Direct Transfer)
+
+### For macOS Users
+macOS doesn't natively support MTP (Media Transfer Protocol). Use **OpenMTP**:
+
+1. **Install OpenMTP:**
+   - Download from https://openmtp.ganeshrvel.com/
+   - Or install via Homebrew: `brew install --cask openmtp`
+
+2. **Build the release version:**
+   ```bash
    make release
    ```
 
-2. **Transfer the .prg file to your phone:**
-   - The file `WatchInvaders.prg` is now ready
-   - Send it to your phone via AirDrop, email, or cloud storage
+3. **Transfer the app:**
+   - Connect your watch via USB
+   - Open OpenMTP
+   - Navigate to GARMIN/APPS folder
+   - Drag and drop `WatchInvaders.prg`
+   - Safely disconnect
 
-3. **Install using Garmin Connect app:**
-   - Open the Garmin Connect app on your phone
-   - Connect your watch via Bluetooth
-   - Navigate to Device Settings → Apps
-   - Select "Upload" or "Sideload Apps"
-   - Choose the WatchInvaders.prg file
-   - The app will transfer to your watch
-
-## Method 2: Using USB Cable and Garmin Express
+### For Windows/Linux Users
 
 1. **Build the release version:**
    ```bash
-   source .envrc
    make release
    ```
 
-2. **Connect your watch via USB:**
-   - Plug your Fenix 7 into your computer
+2. **Transfer the app:**
+   - Connect your watch via USB
    - It should appear as a removable drive
+   - Copy `WatchInvaders.prg` to GARMIN/APPS folder
+   - Safely eject the device
 
-3. **Copy the app:**
-   - Navigate to the GARMIN/APPS folder on your watch
-   - Copy `WatchInvaders.prg` to this folder
-   - Safely eject your watch
-
-## Method 3: Using Connect IQ Store (Developer Preview)
+## Method 2: Using Connect IQ Store (Developer Preview)
 
 1. **Build the release version:**
    ```bash

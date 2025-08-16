@@ -12,16 +12,22 @@ This is a Watch Invaders game implementation for Garmin smartwatches using the C
 ## Development Tools
 - **Compiler**: `monkeyc` - Monkey C compiler
 - **Simulator**: `monkeydo` - Connect IQ device simulator  
-- **SDK Path**: `/Users/farmisen/Library/Application Support/Garmin/ConnectIQ/Sdks/connectiq-sdk-mac-8.2.3-2025-08-11-cac5b3b21/`
-- **Developer Key**: `/Users/farmisen/Projects/fa/garmin/developer_key`
+- **SDK Version Required**: 8.2.3 or later
+- **Developer Key**: Generate with `openssl genrsa -out developer_key 4096`
 
 ## Build Commands
 ```bash
+# Setup environment (copy .envrc.example to .envrc and update paths)
+source .envrc
+
 # Compile the app
-"/Users/farmisen/Library/Application Support/Garmin/ConnectIQ/Sdks/connectiq-sdk-mac-8.2.3-2025-08-11-cac5b3b21/bin/monkeyc" -d fenix7 -f monkey.jungle -o WatchInvaders.prg -y /Users/farmisen/Projects/fa/garmin/developer_key
+make build
 
 # Run in simulator
-"/Users/farmisen/Library/Application Support/Garmin/ConnectIQ/Sdks/connectiq-sdk-mac-8.2.3-2025-08-11-cac5b3b21/bin/monkeydo" WatchInvaders.prg fenix7
+make run
+
+# Build release version
+make release
 ```
 
 ## Project Structure

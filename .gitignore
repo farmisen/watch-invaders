@@ -49,6 +49,7 @@ Temporary Items
 
 # Environment files
 .env
+.envrc
 .envrc.local
 
 # Logs

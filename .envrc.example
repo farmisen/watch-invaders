@@ -1,0 +1,20 @@
+# Environment variables for Watch Invaders development
+# Copy this file to .envrc and update the path to your SDK installation
+
+# Garmin Connect IQ SDK home directory
+# Update this path to match your SDK installation location
+# macOS example:
+export GARMIN_SDK_HOME="/Users/YOUR_USERNAME/Library/Application Support/Garmin/ConnectIQ/Sdks/connectiq-sdk-mac-VERSION"
+
+# Linux example:
+# export GARMIN_SDK_HOME="$HOME/garmin-sdk/connectiq-sdk-linux-VERSION"
+
+# Windows (using Git Bash) example:
+# export GARMIN_SDK_HOME="/c/Program Files/Garmin/ConnectIQ/Sdks/connectiq-sdk-win-VERSION"
+
+# Optional: Add SDK binaries to PATH for direct command access
+export PATH="$GARMIN_SDK_HOME/bin:$PATH"
+
+# Optional: Set developer key path (for signing builds)
+# Generate a key: openssl genrsa -out developer_key 4096
+# export DEVELOPER_KEY="/path/to/your/developer_key"

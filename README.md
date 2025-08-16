@@ -43,21 +43,29 @@ A classic arcade-style space invaders game for Garmin smartwatches, built with C
 
 ### Prerequisites
 
-- Garmin Connect IQ SDK 8.2.3+
-- Monkey C compiler
-- Developer key (for signing)
+1. **Install Garmin Connect IQ SDK:**
+   - Visit [Garmin Developer Portal](https://developer.garmin.com/connect-iq/sdk/)
+   - Download SDK for your platform (macOS/Windows/Linux)
+   - Follow the [installation guide](https://developer.garmin.com/connect-iq/connect-iq-basics/getting-started/)
+
+2. **Generate a developer key:**
+   ```bash
+   openssl genrsa -out developer_key 4096
+   ```
 
 ### Setup
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/farmisen/watch-invaders.git
 cd watch-invaders
 ```
 
-2. Set up environment:
+2. Configure environment:
 ```bash
-source .envrc  # Or set GARMIN_SDK_HOME manually
+cp .envrc.example .envrc
+# Edit .envrc to set your SDK path
+source .envrc
 ```
 
 3. Build the app:
@@ -74,16 +82,27 @@ make restart   # Run without rebuilding
 
 ## Installation
 
-### Method 1: USB Transfer
-1. Build: `make release`
-2. Connect watch via USB
-3. Copy `WatchInvaders.prg` to `GARMIN/APPS/`
-4. Safely eject device
+### USB Transfer (Recommended)
 
-### Method 2: Garmin Connect App
-1. Build: `make release`
-2. Transfer `WatchInvaders.prg` to phone
-3. Use Garmin Connect app → Device → Apps → Sideload
+#### macOS Users
+macOS requires [OpenMTP](https://openmtp.ganeshrvel.com/) for MTP device access:
+```bash
+# Install OpenMTP via Homebrew
+brew install --cask openmtp
+
+# Build and transfer
+make release
+# Open OpenMTP, connect watch, navigate to GARMIN/APPS
+# Drag and drop WatchInvaders.prg
+```
+
+#### Windows/Linux Users
+```bash
+make release
+# Connect watch via USB (appears as drive)
+# Copy WatchInvaders.prg to GARMIN/APPS/
+# Safely eject
+```
 
 See [DEPLOY.md](DEPLOY.md) for detailed installation instructions.
 

@@ -10,7 +10,9 @@ MONKEYC = "$(GARMIN_SDK_HOME)/bin/monkeyc"
 MONKEYDO = "$(GARMIN_SDK_HOME)/bin/monkeydo"
 DEVICE = fenix7
 OUTPUT = WatchInvaders.prg
-DEVELOPER_KEY = /Users/farmisen/Projects/fa/garmin/developer_key
+# Developer key path - set this in your environment or pass as argument
+# Example: make build DEVELOPER_KEY=/path/to/your/developer_key
+DEVELOPER_KEY ?= developer_key
 JUNGLE_FILE = monkey.jungle
 
 # Default target
