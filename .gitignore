@@ -1,0 +1,71 @@
+# Garmin Connect IQ build files
+*.prg
+*.prg.debug.xml
+*.iq
+
+# Barrel files (compiled libraries)
+*.barrel
+
+# Build directories
+bin/
+build/
+out/
+gen/
+mir/
+external-mir/
+internal-mir/
+
+# Developer keys (keep private)
+developer_key
+developer_key.der
+*.pem
+*.key
+
+# IDE specific files
+.vscode/
+.idea/
+*.iml
+*.sublime-*
+.claude/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Environment files
+.env
+.envrc.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.backup
+
+# Connect IQ SDK (if stored locally)
+sdks/
+sdk/
